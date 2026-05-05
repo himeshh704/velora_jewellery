@@ -3,16 +3,16 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://veloura-jewellery.vercel.app"),
+  metadataBase: new URL("https://velora-jewellery.vercel.app"),
   title: {
-    default: "Veloura Jewellery | Premium Handcrafted Excellence",
-    template: "%s | Veloura Jewellery"
+    default: "Velora Jewellery | Premium Handcrafted Excellence",
+    template: "%s | Velora Jewellery"
   },
-  description: "Veloura Jewellery offers exquisite handcrafted pieces, from classic rings to contemporary necklaces. Discover premium jewellery that reflects your unique style.",
-  keywords: ["jewellery", "handcrafted jewellery", "premium rings", "luxury necklaces", "Veloura", "fine jewelry", "bespoke craftsmanship"],
-  authors: [{ name: "Veloura" }],
-  creator: "Veloura",
-  publisher: "Veloura",
+  description: "Velora Jewellery offers exquisite handcrafted pieces, from classic rings to contemporary necklaces. Discover premium jewellery that reflects your unique style.",
+  keywords: ["jewellery", "handcrafted jewellery", "premium rings", "luxury necklaces", "Velora", "fine jewelry", "bespoke craftsmanship"],
+  authors: [{ name: "Velora" }],
+  creator: "Velora",
+  publisher: "Velora",
   robots: {
     index: true,
     follow: true,
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://velora-jewellery.vercel.app",
-    siteName: "Veloura Jewellery",
-    title: "Veloura Jewellery | Premium Handcrafted Excellence",
+    siteName: "Velora Jewellery",
+    title: "Velora Jewellery | Premium Handcrafted Excellence",
     description: "Exquisite handcrafted jewellery for every occasion. Explore our latest collections.",
     images: [
       {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Veloura Jewellery | Premium Handcrafted Excellence",
+    title: "Velora Jewellery | Premium Handcrafted Excellence",
     description: "Exquisite handcrafted jewellery for every occasion.",
     images: ["/og-image.png"],
   },
