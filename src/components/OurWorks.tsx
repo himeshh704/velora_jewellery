@@ -26,14 +26,14 @@ export default function OurWorks() {
   };
 
   return (
-    <section className="py-32 relative overflow-hidden bg-[#0A0A0A]">
-      <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-20 pointer-events-none" />
+    <section className="py-32 relative overflow-hidden bg-card">
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" />
       
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12 mb-20 relative">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="w-full md:w-1/3">
-            <p className="text-sm text-white/50 leading-relaxed max-w-xs">
-              Veloura combination of statement and simplistic style helps create a look that's as unique as you are.
+            <p className="text-sm text-foreground/50 leading-relaxed max-w-xs">
+              Velora combination of statement and simplistic style helps create a look that's as unique as you are.
             </p>
           </div>
           <div className="w-full md:w-2/3">
@@ -41,7 +41,7 @@ export default function OurWorks() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-7xl md:text-[12rem] font-display font-bold leading-none tracking-tighter text-white"
+              className="text-7xl md:text-[12rem] font-display font-bold leading-none tracking-tighter text-foreground"
             >
               OUR WORKS
             </motion.h2>
@@ -68,9 +68,9 @@ export default function OurWorks() {
               fill
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             <div className="absolute bottom-8 left-8">
-              <h3 className="text-xl font-display font-bold">{work.name}</h3>
+              <h3 className="text-xl font-display font-bold text-foreground">{work.name}</h3>
             </div>
           </motion.div>
         ))}
@@ -79,13 +79,13 @@ export default function OurWorks() {
       <div className="flex justify-center gap-4 mt-8">
         <button 
           onClick={() => scroll("left")}
-          className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all"
+          className="w-12 h-12 rounded-full border border-foreground/10 flex items-center justify-center hover:bg-foreground hover:text-background transition-all"
         >
           <ChevronLeft size={20} />
         </button>
         <button 
           onClick={() => scroll("right")}
-          className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all"
+          className="w-12 h-12 rounded-full border border-foreground/10 flex items-center justify-center hover:bg-foreground hover:text-background transition-all"
         >
           <ChevronRight size={20} />
         </button>

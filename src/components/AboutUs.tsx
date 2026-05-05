@@ -25,10 +25,10 @@ export default function AboutUs() {
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="bg-accent p-8 md:p-16 rounded-[3rem] text-white flex flex-col justify-center"
+          className="bg-accent p-8 md:p-16 rounded-[3rem] text-foreground flex flex-col justify-center"
         >
           <h2 className="text-3xl md:text-5xl font-serif mb-8">About Us</h2>
-          <div className="space-y-6 text-white/80 leading-relaxed text-sm md:text-base">
+          <div className="space-y-6 text-foreground/80 leading-relaxed text-sm md:text-base">
             <p>
               At Veloura, we believe that jewelry is more than just adornment — it is an intimate expression of elegance, confidence, and timeless beauty. Born from a passion for artistry and refined craftsmanship, Veloura creates pieces that are as meaningful as they are exquisite.
             </p>

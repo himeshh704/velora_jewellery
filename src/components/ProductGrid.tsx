@@ -33,10 +33,10 @@ export default function ProductGrid() {
             className="text-4xl md:text-6xl font-serif leading-tight"
           >
             From Classic to Contemporary— <br />
-            <span className="text-white/50 italic">Your Perfect Piece Awaits</span>
+            <span className="text-foreground/50 italic">Your Perfect Piece Awaits</span>
           </motion.h2>
         </div>
-        <Link href="/shop" className="text-sm font-bold tracking-widest uppercase border-b border-white/20 pb-1 hover:border-accent transition-colors">
+        <Link href="/shop" className="text-sm font-bold tracking-widest uppercase border-b border-foreground/20 pb-1 hover:border-gold transition-colors">
           See All Collections
         </Link>
       </div>
@@ -63,7 +63,7 @@ export default function ProductGrid() {
               </button>
             </div>
             <div className="space-y-1">
-              <p className="text-xs text-white/50 uppercase tracking-widest">{product.category}</p>
+              <p className="text-xs text-foreground/50 uppercase tracking-widest">{product.category}</p>
               <h3 className="text-lg font-serif">{product.name}</h3>
               <p className="text-sm font-medium text-gold">{product.price}</p>
             </div>

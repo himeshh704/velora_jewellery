@@ -24,7 +24,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-xs md:text-sm font-medium tracking-[0.3em] text-white/50 uppercase mb-4"
+          className="text-xs md:text-sm font-medium tracking-[0.3em] text-foreground/50 uppercase mb-4"
         >
           Curated Excellence Since 1995
         </motion.p>
@@ -41,7 +41,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-sm md:text-base text-white/40 max-w-lg mx-auto leading-relaxed"
+          className="text-sm md:text-base text-foreground/40 max-w-lg mx-auto leading-relaxed"
         >
           We tried to design a new style to view our new jewelrys to be more different than ever. Discover the intersection of tradition and avant-garde.
         </motion.p>
@@ -67,7 +67,7 @@ export default function Hero() {
             whileHover={{ y: -20, scale: 1.05 }}
             className="relative flex-shrink-0 w-40 md:w-64 h-[80%] md:h-full rounded-2xl overflow-hidden shadow-2xl group cursor-pointer"
           >
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500 z-10" />
+            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
             <Image
               src={image.src}
               alt={image.title}
@@ -88,7 +88,7 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <div className="w-[1px] h-12 bg-gradient-to-b from-accent to-transparent" />
-        <span className="text-[10px] text-white/30 tracking-[0.4em] uppercase">Scroll</span>
+        <span className="text-[10px] text-foreground/30 tracking-[0.4em] uppercase">Scroll</span>
       </div>
     </section>
   );

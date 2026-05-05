@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #000000;
-  --color-foreground: #FFFFFF;
-  --color-accent: #8B0000;
+  --color-background: #FFFFFF;
+  --color-foreground: #1A1A1A;
+  --color-accent: #E5E4E2;
   --color-gold: #C5A059;
-  --color-muted: #A0A0A0;
-  --color-card: #0A0A0A;
+  --color-muted: #707070;
+  --color-card: #F9F9F9;
 
   --font-serif: "Playfair Display", serif;
   --font-sans: "Outfit", sans-serif;
@@ -18,8 +18,8 @@
 }
 
 :root {
-  --background: #000000;
-  --foreground: #FFFFFF;
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
 }
 
 html.lenis {
@@ -58,7 +58,7 @@ body::before {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -70,11 +70,11 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
 }
 
-/* Glassmorphism utility */
+/* Glassmorphism utility - inverted for light theme */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.02);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Scrollbar utility */
