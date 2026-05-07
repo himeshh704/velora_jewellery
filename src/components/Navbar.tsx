@@ -5,20 +5,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/lib/store";
+import CartDrawer from "./CartDrawer";
 
 const navLinks = [
   { name: "Shop", href: "/shop" },
-  { name: "Rings", href: "/rings" },
-  { name: "Earrings", href: "/earrings" },
-  { name: "Bracelets", href: "/bracelets" },
-  { name: "Necklaces", href: "/necklaces" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  
+  const totalItems = useCart((state) => state.getTotalItems());
 
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -57,9 +62,16 @@ export default function Navbar() {
           <button className="text-foreground/80 hover:text-foreground transition-colors">
             <Search size={20} strokeWidth={1.5} />
           </button>
-          <button className="text-foreground/80 hover:text-foreground transition-colors relative">
+          <button 
+            onClick={() => setIsCartOpen(true)}
+            className="text-foreground/80 hover:text-foreground transition-colors relative"
+          >
             <ShoppingBag size={20} strokeWidth={1.5} />
-            <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full" />
+            {isMounted && totalItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                {totalItems}
+              </span>
+            )}
           </button>
           <button className="hidden md:block text-foreground/80 hover:text-foreground transition-colors">
             <User size={20} strokeWidth={1.5} />
@@ -72,6 +84,9 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+
+      {/* Cart Drawer */}
+      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
       {/* Mobile Menu */}
       <AnimatePresence>

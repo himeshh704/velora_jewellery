@@ -1,7 +1,22 @@
-import { Instagram, X, Facebook, ArrowUpRight } from "lucide-react";
+"use client";
+
+import { Instagram, X, Facebook, ArrowUpRight, Check } from "lucide-react";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setStatus("success");
+      setTimeout(() => setStatus("idle"), 3000);
+      setEmail("");
+    }
+  };
+
   return (
     <footer className="bg-card pt-32 pb-12 px-6 md:px-12 border-t border-foreground/5">
       <div className="max-w-screen-2xl mx-auto">
@@ -27,27 +42,38 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/30 mb-8">Collections</h4>
             <ul className="space-y-4 text-sm">
-              <li><Link href="#" className="hover:text-gold transition-colors">Engagement Rings</Link></li>
-              <li><Link href="#" className="hover:text-gold transition-colors">Classic Necklaces</Link></li>
-              <li><Link href="#" className="hover:text-gold transition-colors">Artisan Bracelets</Link></li>
-              <li><Link href="#" className="hover:text-gold transition-colors">Luxury Earrings</Link></li>
-              <li><Link href="#" className="hover:text-gold transition-colors">Summer 2025</Link></li>
+              <li><Link href="/shop" className="hover:text-gold transition-colors">Engagement Rings</Link></li>
+              <li><Link href="/shop" className="hover:text-gold transition-colors">Classic Necklaces</Link></li>
+              <li><Link href="/shop" className="hover:text-gold transition-colors">Artisan Bracelets</Link></li>
+              <li><Link href="/shop" className="hover:text-gold transition-colors">Luxury Earrings</Link></li>
+              <li><Link href="/shop" className="hover:text-gold transition-colors">Summer 2025</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/30 mb-8">Newsletter</h4>
             <p className="text-sm text-foreground/50 mb-6">Join our mailing list for exclusive previews and offers.</p>
-            <div className="relative">
-              <input 
-                type="email" 
-                placeholder="Email Address" 
-                className="w-full bg-transparent border-b border-foreground/10 pb-2 text-sm focus:outline-none focus:border-gold transition-colors"
-              />
-              <button className="absolute right-0 bottom-2">
-                <ArrowUpRight size={18} className="text-foreground/50" />
-              </button>
-            </div>
+            <form onSubmit={handleSubscribe} className="relative">
+              {status === "success" ? (
+                <div className="flex items-center gap-2 text-green-500 text-sm font-bold animate-pulse py-2">
+                  <Check size={16} /> Subscription successful
+                </div>
+              ) : (
+                <>
+                  <input 
+                    type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email Address" 
+                    required
+                    className="w-full bg-transparent border-b border-foreground/10 pb-2 text-sm focus:outline-none focus:border-gold transition-colors pr-10"
+                  />
+                  <button type="submit" className="absolute right-0 bottom-2 hover:text-gold transition-colors">
+                    <ArrowUpRight size={18} className="text-foreground/50" />
+                  </button>
+                </>
+              )}
+            </form>
           </div>
         </div>
 

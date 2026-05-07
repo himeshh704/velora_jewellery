@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   },
 };
 
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,7 +53,9 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth">
       <body className="bg-background text-foreground antialiased selection:bg-accent selection:text-white">
         <SmoothScroll>
+          <Navbar />
           {children}
+          <Footer />
         </SmoothScroll>
       </body>
     </html>
