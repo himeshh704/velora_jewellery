@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body className="bg-background text-foreground antialiased selection:bg-accent selection:text-white">
         <SmoothScroll>
           <Navbar />
