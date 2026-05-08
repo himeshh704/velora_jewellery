@@ -3,7 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://velora-jewellery-fpeg.vercel.app"),
+  metadataBase: new URL("https://velora-jewellery-two.vercel.app"),
   title: {
     default: "Velora Jewellery | Premium Handcrafted Excellence",
     template: "%s | Velora Jewellery"
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://velora-jewellery-fpeg.vercel.app",
+    url: "https://velora-jewellery-two.vercel.app",
     siteName: "Velora Jewellery",
     title: "Velora Jewellery | Premium Handcrafted Excellence",
     description: "Exquisite handcrafted jewellery for every occasion. Explore our latest collections.",
