@@ -4,14 +4,28 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Plus } from "lucide-react";
-
-import { products as allProducts } from "@/lib/products";
 import { useCart } from "@/lib/store";
+import { ProductData } from "@/types/sanity";
 
-const products = allProducts.slice(0, 5);
+interface ProductGridProps {
+  products?: ProductData[];
+}
 
-export default function ProductGrid() {
+export default function ProductGrid({ products = [] }: ProductGridProps) {
   const { addItem } = useCart();
+
+  // Map Sanity product to the cart item format if needed
+  const handleAddToCart = (product: ProductData) => {
+    addItem({
+      id: product._id,
+      name: product.name,
+      price: parseFloat(product.price.replace(/[^0-9.]/g, '')),
+      images: product.images,
+      category: product.category || "Jewellery",
+      description: product.description || "",
+      slug: product.slug,
+    } as any);
+  };
 
   return (
     <section className="py-24 px-6 md:px-12 max-w-screen-2xl mx-auto">
@@ -35,7 +49,7 @@ export default function ProductGrid() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
         {products.map((product, idx) => (
           <motion.div
-            key={product.id}
+            key={product._id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -43,9 +57,9 @@ export default function ProductGrid() {
             className="group"
           >
             <div className="relative aspect-[4/5] bg-card rounded-2xl overflow-hidden mb-4">
-              <Link href={`/product/${product.id}`}>
+              <Link href={`/product/${product.slug}`}>
                 <Image
-                  src={product.images[0]}
+                  src={product.images[0] || "/placeholder.png"}
                   alt={product.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -54,17 +68,17 @@ export default function ProductGrid() {
               <button 
                 onClick={(e) => {
                   e.preventDefault();
-                  addItem(product);
+                  handleAddToCart(product);
                 }}
                 className="absolute top-4 right-4 w-10 h-10 rounded-full glass flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 hover:bg-gold hover:text-white"
               >
                 <Plus size={20} />
               </button>
             </div>
-            <Link href={`/product/${product.id}`} className="space-y-1">
+            <Link href={`/product/${product.slug}`} className="space-y-1">
               <p className="text-xs text-foreground/50 uppercase tracking-widest">{product.category}</p>
               <h3 className="text-lg font-serif">{product.name}</h3>
-              <p className="text-sm font-medium text-gold">${product.price}</p>
+              <p className="text-sm font-medium text-gold">{product.price}</p>
             </Link>
           </motion.div>
         ))}

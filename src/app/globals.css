@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #FFFFFF;
+  --color-background: #FCFBF7;
   --color-foreground: #1A1A1A;
   --color-accent: #F5F5F5;
   --color-gold: #D4AF37;
@@ -18,7 +18,7 @@
 }
 
 :root {
-  --background: #FFFFFF;
+  --background: #FCFBF7;
   --foreground: #1A1A1A;
 }
 

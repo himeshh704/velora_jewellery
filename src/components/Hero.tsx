@@ -12,7 +12,13 @@ const heroImages = [
   { id: 5, src: "/hero-5.png", title: "Diamond Dreams" },
 ];
 
-export default function Hero() {
+interface HeroProps {
+  title?: string;
+  subtitle?: string;
+  italicTitle?: string;
+}
+
+export default function Hero({ title, subtitle, italicTitle }: HeroProps) {
   return (
     <section className="relative min-h-screen pt-32 pb-20 px-6 overflow-hidden flex flex-col items-center justify-center">
       {/* Background Subtle Gradient */}
@@ -26,7 +32,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-xs md:text-sm font-medium tracking-[0.3em] text-foreground/50 uppercase mb-4"
         >
-          Curated Excellence Since 1995
+          {subtitle || "Curated Excellence Since 1995"}
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -34,8 +40,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-5xl md:text-8xl font-serif leading-[1.1] tracking-tight mb-8"
         >
-          View our <br />
-          <span className="italic">latest works</span>
+          {title || "View our"} <br />
+          <span className="italic text-[#D4AF37]">{italicTitle || "latest works"}</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
